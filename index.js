@@ -9,7 +9,7 @@ Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
  * @function
  * @returns {Number} the closest whole number to the original number
  */
-Number.prototype.round = function() {
+Number.prototype.round = function round() {
   return Math.round(this);
 };
 
@@ -18,17 +18,15 @@ Number.prototype.round = function() {
  * @function
  * @returns {Number} the closest whole number to the rounded down original number
  */
-Number.prototype.floor() = function() {
+Number.prototype.floor = function floor() {
   return Math.floor(this);
-}
+};
 
 /**
- * Round a number to the highest 
+ * Round a number to the highest
  * @function
  * @returns {Number} the closest whole number to the rounded up original number
  */
-Number.prototype.ceil() = function() {
+Number.prototype.ceil = function ceil() {
   return Math.ceil(this);
-}
-
-console.log(Number(4.3).round());
+};
