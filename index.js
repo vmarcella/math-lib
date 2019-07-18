@@ -74,7 +74,8 @@ Number.prototype.pad = function pad(leftPadding, rightPadding) {
   // There isn't a decimal place within the number,
   // no need to add right padding.
   const num = numAsArray[0];
-  return "0".repeat(leftPadding) + num;
+  const paddingNeeded = leftPadding - num.length;
+  return "0".repeat(paddingNeeded) + num;
 };
 
 console.log(Number(34.43).pad(3, 2));
