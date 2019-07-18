@@ -19,9 +19,12 @@ test("Rounding a number up with ceil", () => {
   expect(Number(7).ceil()).toBe(7);
 });
 
-test("Padding a number with a x and y number", () => {
+test("Padding a number to either side of a number", () => {
   expect(Number(4.8).pad(4, 4)).toBe("0004.8000");
   expect(Number(10.1).pad(2, 2)).toBe("10.10");
   expect(Number(10.1).pad(0, 0)).toBe("10.1");
   expect(Number(200).pad(3, 3)).toBe("200");
+  expect(Number(0.0).pad(2, 2)).toBe("00");
+  expect(Number(2434.3443).pad(2, 2)).toBe("2434.3443");
+  expect(Number(2.3456789).pad(10, 0)).toBe("0000000002.3456789");
 });
