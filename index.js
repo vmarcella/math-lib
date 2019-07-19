@@ -78,4 +78,24 @@ Number.prototype.pad = function pad(leftPadding, rightPadding) {
   return "0".repeat(paddingNeeded) + num;
 };
 
-console.log(Number(34.43).pad(3, 2));
+/**
+ * Convert a number from degrees to radians
+ * @function
+ * @returns {Number} The converted number in radians
+ * @examples
+ *  Number(20).degToRad() -> 0.349066
+ */
+Number.prototype.degToRad = function degToRad() {
+  return this * (Math.PI / 180);
+};
+
+/**
+ * Convert a number from radians to degrees
+ * @function
+ * @returns {Number} the converted number in degrees.
+ * @examples
+ *  Number(1).radToDeg() -> 57.2958
+ */
+Number.prototype.radToDegree = function radToDeg() {
+  return this / (Math.PI / 180);
+};
