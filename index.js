@@ -41,6 +41,7 @@ Number.prototype.ceil = function ceil() {
  *  Number(5.3234).pad(4,5) -> 0004.32340
  *  Number(4.34).pad(2,0) -> 04.34
  *  Number(23.32).pad(10,10) -> 0000000023.3200000000
+ *
  */
 Number.prototype.pad = function pad(leftPadding, rightPadding) {
   const numAsArray = String(this).split(".");
