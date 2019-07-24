@@ -2,9 +2,20 @@
   "name": "math-lib",
   "version": "1.0.0",
   "description": "The utlimate extension of the Number object built into javascript",
-  "main": "index.js",
+  "main": "umd/index.js",
+  "module": "esm/index.js",
+  "files": [
+    "esm/*",
+    "umd/*"
+  ],
   "scripts": {
-    "test": "jest test.js"
+    "test": "jest test.js",
+    "prepare": "rollup --config"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test"
+    }
   },
   "repository": {
     "type": "git",

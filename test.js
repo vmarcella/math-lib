@@ -28,3 +28,7 @@ test("Padding a number to either side of a number", () => {
   expect(Number(2434.3443).pad(2, 2)).toBe("2434.3443");
   expect(Number(2.3456789).pad(10, 0)).toBe("0000000002.3456789");
 });
+
+test("Converting a number from degress to radians", () => {});
+
+test("Converting a number from radians to degrees", () => {});
