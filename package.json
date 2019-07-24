@@ -20,6 +20,11 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
-    "jest": "^24.8.0"
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "rollup": "^1.17.0"
+  },
+  "dependencies": {
+    "rollup-plugin-terser": "^5.1.1"
   }
 }
