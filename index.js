@@ -1,11 +1,11 @@
 /**
- * The golden ratio as approximated by: https://en.wikipedia.org/wiki/Golden_ratio
+ * @desc The golden ratio as approximated by: https://en.wikipedia.org/wiki/Golden_ratio
  * @type {Number}
  */
 Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
 
 /**
- * Round a number to it's nearest whole number
+ * @desc Round a number to it's nearest whole number
  * @function
  * @returns {Number} the closest whole number to the original number
  */
@@ -14,7 +14,7 @@ Number.prototype.round = function round() {
 };
 
 /**
- * Round a number down to it's nearest whole number.
+ * @desc Round a number down to it's nearest whole number.
  * @function
  * @returns {Number} the closest whole number to the rounded down original number.
  */
@@ -22,7 +22,8 @@ Number.prototype.floor = function floor() {
   return Math.floor(this);
 };
 
-/** * Round a number up to it's closest whole number
+/**
+ * @desc Round a number up to it's closest whole number
  * @function
  * @returns {Number} the closest whole number to the rounded up original number.
  * @examples
@@ -33,7 +34,7 @@ Number.prototype.ceil = function ceil() {
 };
 
 /**
- * Pad a number with a specified amount of zeros (On either the left or right side)
+ * @desc Pad a number with a specified amount of zeros (On either the left or right side)
  * @function
  * @returns {String} A padded string that indicates.
  * @examples
@@ -79,7 +80,7 @@ Number.prototype.pad = function pad(leftPadding, rightPadding) {
 };
 
 /**
- * Convert a number from degrees to radians
+ * @desc Convert a number from degrees to radians
  * @function
  * @returns {Number} The converted number in radians
  * @examples
@@ -90,7 +91,7 @@ Number.prototype.degToRad = function degToRad() {
 };
 
 /**
- * Convert a number from radians to degrees
+ * @desc Convert a number from radians to degrees
  * @function
  * @returns {Number} the converted number in degrees.
  * @examples
