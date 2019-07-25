@@ -42,3 +42,10 @@ test("Converting a number from radians to degrees", () => {
   expect(Number(200).radToDeg()).toBeCloseTo(11459.2, 1);
   expect(Number(-200).radToDeg()).toBeCloseTo(-11459.2, 1);
 });
+
+test("Converting a number to it's dollar representation", () => {
+  expect(Number(0).toDollars()).toBe("$0.00");
+  expect(Number(5.01).toDollars()).toBe("$5.01");
+  expect(Number(0.534).toDollars()).toBe("¢0.534");
+  expect(Number(456.33233333).toDollars()).toBe("$456.33233333");
+});
