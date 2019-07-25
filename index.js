@@ -7,7 +7,7 @@ Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
 /**
  * @desc Round a number to it's nearest whole number
  * @function
- * @returns {Number} the closest whole number to the original number
+ * @return {Number} the closest whole number to the original number
  */
 Number.prototype.round = function round() {
   return Math.round(this);
@@ -16,7 +16,7 @@ Number.prototype.round = function round() {
 /**
  * @desc Round a number down to it's nearest whole number.
  * @function
- * @returns {Number} the closest whole number to the rounded down original number.
+ * @return {Number} the closest whole number to the rounded down original number.
  */
 Number.prototype.floor = function floor() {
   return Math.floor(this);
@@ -25,7 +25,7 @@ Number.prototype.floor = function floor() {
 /**
  * @desc Round a number up to it's closest whole number
  * @function
- * @returns {Number} the closest whole number to the rounded up original number.
+ * @return {Number} the closest whole number to the rounded up original number.
  * @examples
  *  Number(5.32).ceil() -> 6
  */
@@ -36,7 +36,7 @@ Number.prototype.ceil = function ceil() {
 /**
  * @desc Pad a number with a specified amount of zeros (On either the left or right side)
  * @function
- * @returns {String} A padded string that indicates.
+ * @return {String} A padded string that indicates.
  * @examples
  *  Number(5.3234).pad(4,5) -> 0004.32340
  *  Number(4.34).pad(2,0) -> 04.34
@@ -82,7 +82,7 @@ Number.prototype.pad = function pad(leftPadding, rightPadding) {
 /**
  * @desc Convert a number from degrees to radians
  * @function
- * @returns {Number} The converted number in radians
+ * @return {Number} The converted number in radians
  * @examples
  *  Number(20).degToRad() -> 0.349066
  */
@@ -93,10 +93,32 @@ Number.prototype.degToRad = function degToRad() {
 /**
  * @desc Convert a number from radians to degrees
  * @function
- * @returns {Number} the converted number in degrees.
+ * @return {Number} the converted number in degrees.
  * @examples
  *  Number(1).radToDeg() -> 57.2958
  */
 Number.prototype.radToDeg = function radToDeg() {
   return this / (Math.PI / 180);
+};
+
+/**
+ * @desc Convert a number to USD.
+ * @function
+ * @return {String} The dollar representation of the number
+ */
+Number.prototype.toDollars = function toDollars() {
+  const numArr = String(this).split(".");
+
+  // Number is a whole number
+  if (numArr.length === 1) {
+    return `$${numArr[0]}.00`;
+  }
+
+  // Number is fractional but less than 0
+  if (numArr[0] === "0") {
+    return `¢0.${numArr[1]}`;
+  }
+
+  // Number is fractional and greater than 0
+  return `$${numArr[0]}.${numArr[1]}`;
 };
