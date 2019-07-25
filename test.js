@@ -51,9 +51,15 @@ test("Converting a number to it's dollar representation", () => {
 });
 
 test("Calcuting the tax on a number", () => {
-  expect(() => Number(1).tax(100)).toThrow();
+  expect(() => Number(1).tax(101)).toThrow();
   expect(() => Number(1).tax(-100)).toThrow();
 
   expect(Number(0).tax(0)).toBe(0);
   expect(Number(0).tax(1)).toBe(0);
+
+  expect(Number(1).tax(1)).toBe(1);
+  expect(Number(1).tax(0)).toBe(0);
+
+  expect(Number(300).tax(0.45)).toBe(135);
+  expect(Number(100).tax(100)).toBe(100);
 });
