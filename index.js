@@ -97,6 +97,6 @@ Number.prototype.degToRad = function degToRad() {
  * @examples
  *  Number(1).radToDeg() -> 57.2958
  */
-Number.prototype.radToDegree = function radToDeg() {
+Number.prototype.radToDeg = function radToDeg() {
   return this / (Math.PI / 180);
 };

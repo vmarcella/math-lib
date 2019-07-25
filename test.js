@@ -29,6 +29,13 @@ test("Padding a number to either side of a number", () => {
   expect(Number(2.3456789).pad(10, 0)).toBe("0000000002.3456789");
 });
 
-test("Converting a number from degress to radians", () => {});
+test("Converting a number from degress to radians", () => {
+  expect(Number(0).degToRad()).toBe(0);
+  expect(Number(1).degToRad()).toBeCloseTo(0.0174533);
+  expect(Number(-200).degToRad()).toBeCloseTo(-3.49066);
+  expect(Number(200).degToRad()).toBeCloseTo(3.49066);
+});
 
-test("Converting a number from radians to degrees", () => {});
+test("Converting a number from radians to degrees", () => {
+  expect(Number(1).radToDeg()).toBeCloseTo(57.2958);
+});
