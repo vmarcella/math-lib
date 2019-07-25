@@ -70,4 +70,6 @@ test("Calculating the tax on a number with the tax applied to the number", () =>
 
   expect(Number(100).withTax(100)).toBe(200);
   expect(Number(100).withTax(1)).toBe(101);
+
+  expect(Number(10).withTax(5)).toBe(10.5);
 });
