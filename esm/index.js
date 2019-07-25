@@ -105,6 +105,10 @@ Number.prototype.radToDeg = function radToDeg() {
  * @desc Convert a number to USD.
  * @function
  * @return {String} The dollar representation of the number
+ * @examples
+ *  Number(1).toDollars() -> $1.00
+ *  Number(1.05).toDollars() -> $1.05
+ *  Number(0.5).toDollars() -> ¢0.5
  */
 Number.prototype.toDollars = function toDollars() {
   const numArr = String(this).split(".");
@@ -121,4 +125,19 @@ Number.prototype.toDollars = function toDollars() {
 
   // Number is fractional and greater than 0
   return `$${numArr[0]}.${numArr[1]}`;
+};
+
+/**
+ * @desc Return the tax amount from the number that would be applied given the rate
+ * @function
+ * @return {Number} the tax of the current number
+ * @examples
+ *  Number(10).tax(.10) -> 1.00
+ *  Number(60).tax(.25) -> 15.00
+ */
+Number.prototype.tax = function tax(rate) {
+  if (rate >= 0 && rate <= 1) {
+    return this * rate;
+  }
+  throw new Error("The tax rate needs to be within 0 and 1!");
 };

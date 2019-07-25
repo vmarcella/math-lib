@@ -49,3 +49,11 @@ test("Converting a number to it's dollar representation", () => {
   expect(Number(0.534).toDollars()).toBe("¢0.534");
   expect(Number(456.33233333).toDollars()).toBe("$456.33233333");
 });
+
+test("Calcuting the tax on a number", () => {
+  expect(() => Number(1).tax(100)).toThrow();
+  expect(() => Number(1).tax(-100)).toThrow();
+
+  expect(Number(0).tax(0)).toBe(0);
+  expect(Number(0).tax(1)).toBe(0);
+});
