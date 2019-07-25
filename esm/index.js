@@ -130,20 +130,24 @@ Number.prototype.toDollars = function toDollars() {
 /**
  * @desc Return the tax amount from the number that would be applied given the rate
  * @function
- * @param {Number} rate - The tax rate to be applied Must where the rate is 0 <= rate <= 1
+ * @param {Number} rate - The tax rate to be applied where the rate is 0 <= rate <= 100
  * or the rate is 0 <= 100
  * @return {Number} the total tax amount of the current number multiplied by the rate
  * @examples
- *  Number(10).tax(.10) -> 1.00
- *  Number(60).tax(.25) -> 15.00
+ *  Number(10).tax(10) -> 1.00
+ *  Number(60).tax(25) -> 15.00
  */
 Number.prototype.tax = function tax(rate) {
-  if (rate >= 0 && rate <= 1) {
-    return this * rate;
+  // Anything times zero is zero
+  if (rate === 0) {
+    return 0;
   }
+
+  // Bound checking for the rate
   if (rate >= 0 && rate <= 100) {
     return this * (rate / 100);
   }
+
   throw new Error("The tax rate needs to be within 0 and 1! or 0 and 100!");
 };
 
@@ -153,8 +157,8 @@ Number.prototype.tax = function tax(rate) {
  * @param {Number} rate - The tax rate to be applied
  * @return {Number} a new number that has the tax of the original number applied.
  * @examples
- *  Number(10).withTax(.10) -> 11
- *  Number(200).withTax(.50) -> 300
+ *  Number(10).withTax(10) -> 11
+ *  Number(200).withTax(50) -> 300
  */
 Number.prototype.withTax = function withTax(rate) {
   return this + this.tax(rate);

@@ -57,9 +57,17 @@ test("Calcuting the tax on a number", () => {
   expect(Number(0).tax(0)).toBe(0);
   expect(Number(0).tax(1)).toBe(0);
 
-  expect(Number(1).tax(1)).toBe(1);
+  expect(Number(1).tax(1)).toBe(0.01);
   expect(Number(1).tax(0)).toBe(0);
 
-  expect(Number(300).tax(0.45)).toBe(135);
+  expect(Number(300).tax(45)).toBe(135);
   expect(Number(100).tax(100)).toBe(100);
+});
+
+test("Calculating the tax on a number with the tax applied to the number", () => {
+  expect(() => Number(1).withTax(101)).toThrow();
+  expect(() => Number(1).withTax(-1)).toThrow();
+
+  expect(Number(100).withTax(100)).toBe(200);
+  expect(Number(100).withTax(1)).toBe(101);
 });
