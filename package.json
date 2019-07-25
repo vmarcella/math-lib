@@ -9,7 +9,7 @@
     "umd/*"
   ],
   "scripts": {
-    "test": "jest test.js",
+    "test": "npm run prepare && jest test.js",
     "prepare": "rollup --config"
   },
   "husky": {
