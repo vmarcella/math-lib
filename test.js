@@ -32,10 +32,13 @@ test("Padding a number to either side of a number", () => {
 test("Converting a number from degress to radians", () => {
   expect(Number(0).degToRad()).toBe(0);
   expect(Number(1).degToRad()).toBeCloseTo(0.0174533);
-  expect(Number(-200).degToRad()).toBeCloseTo(-3.49066);
-  expect(Number(200).degToRad()).toBeCloseTo(3.49066);
+  expect(Number(-200).degToRad()).toBeCloseTo(-3.49066, 5);
+  expect(Number(200).degToRad()).toBeCloseTo(3.49066, 5);
 });
 
 test("Converting a number from radians to degrees", () => {
-  expect(Number(1).radToDeg()).toBeCloseTo(57.2958);
+  expect(Number(0).radToDeg()).toBe(0);
+  expect(Number(1).radToDeg()).toBeCloseTo(57.2958, 4);
+  expect(Number(200).radToDeg()).toBeCloseTo(11459.2, 1);
+  expect(Number(-200).radToDeg()).toBeCloseTo(-11459.2, 1);
 });
