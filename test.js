@@ -90,4 +90,5 @@ test("Calculating the monthly payments for a mortage", () => {
 
   expect(Number(100000).mortage(3.92, 30)).toBeCloseTo(473, 0);
   expect(Number(50000).mortage(5.0, 10)).toBeCloseTo(530, 0);
+  expect(Number(0).mortage(100, 100)).toBe(0);
 });
