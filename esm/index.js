@@ -184,3 +184,28 @@ Number.prototype.interest = function interest(rate, years, decimalPlaces = 2) {
   const interestRate = rate / 100;
   return (this * (1 + interestRate * years)).toFixed(decimalPlaces);
 };
+
+/**
+ * @desc Calculate the monthly payments for a mortage given a principal (Number)
+ * @param {Number} numberOfYears - the years remaining for the mortage
+ * @param {Number} interestRate - The yearly rate of interest
+ */
+Number.prototype.mortage = function mortage(interestRate, numberOfYears) {
+  if (numberOfYears < 0) {
+    throw new Error(
+      "You cannot have a negative amount of years to make payments!",
+    );
+  }
+
+  if (interestRate <= 0) {
+    throw new Error("You cannot have a negative or 0 interest rate!");
+  }
+
+  const monthlyInterest = interestRate / 100 / 12;
+  const totalPayments = numberOfYears * 12;
+  // Top half of the mortage equation
+  const numerator = Math.pow(1 + monthlyInterest, totalPayments);
+  // Bottom half of the mortage equation
+  const denominator = Math.pow(1 + monthlyInterest, totalPayments) - 1;
+  return (this * monthlyInterest * numerator) / denominator;
+};

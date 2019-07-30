@@ -82,3 +82,12 @@ test("Calculating the interest on a given number", () => {
   expect(Number(2).interest(80, 50)).toBe("82.00");
   expect(Number(15).interest(1, 1000)).toBe("165.00");
 });
+
+test("Calculating the monthly payments for a mortage", () => {
+  expect(() => Number(100000).mortage(-1, 1)).toThrow();
+  expect(() => Number(100000).mortage(0, 0)).toThrow();
+  expect(() => Number(100000).mortage(0, -1)).toThrow();
+
+  expect(Number(100000).mortage(3.92, 30)).toBeCloseTo(473, 0);
+  expect(Number(50000).mortage(5.0, 10)).toBeCloseTo(530, 0);
+});
