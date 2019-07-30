@@ -163,3 +163,23 @@ Number.prototype.tax = function tax(rate) {
 Number.prototype.withTax = function withTax(rate) {
   return this + this.tax(rate);
 };
+
+/**
+ * @desc Calculate the interest on a number given the interest rate, years, and optional
+ * decimal places to round to
+ * @function
+ * @param {Number} rate - The interest rate
+ * @param {Number} years - The amount of years the rate is applied to
+ */
+Number.prototype.interest = function interest(rate, years, decimalPlaces = 3) {
+  if (rate < 0) {
+    throw new Error("You cannot enter a interest rate lower than 0%!");
+  }
+
+  if (years < 0) {
+    throw new Error("You cannot go back in time! Enter a year greater than 0!");
+  }
+
+  const interestRate = rate / 100 + 1;
+  return (this * Math.pow(interestRate, years)).toFixed(decimalPlaces);
+};

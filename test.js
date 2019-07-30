@@ -73,3 +73,7 @@ test("Calculating the tax on a number with the tax applied to the number", () =>
 
   expect(Number(10).withTax(5)).toBe(10.5);
 });
+
+test("Calculating the interest on a given number", () => {
+
+})
