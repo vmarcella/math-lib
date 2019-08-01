@@ -1,5 +1,5 @@
 /* global test expect  */
-require("./index.js");
+require("./umd/index.js");
 
 test("Rounding a number to it's nearest whole number", () => {
   expect(Number(4.345).round()).toBe(4);
