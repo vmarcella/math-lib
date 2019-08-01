@@ -1,5 +1,5 @@
 {
-  "name": "math-lib",
+  "name": "@cenz/math-lib",
   "version": "1.0.0",
   "description": "The utlimate extension of the Number object built into javascript",
   "main": "umd/index.js",
