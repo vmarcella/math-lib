@@ -12,7 +12,7 @@ interface Number {
   toDollars(): string;
   tax(rate: number): number;
   withTax(rate: number): number;
-  interest(rate: number, years: number, decimalPlaces: number): string;
+  interest(rate: number, years: number, decimalPlaces?: number): string;
   mortage(interestRate: number, years: number): number;
   decimalToHex(): string;
 }

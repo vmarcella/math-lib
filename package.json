@@ -9,7 +9,7 @@
     "umd/*"
   ],
   "scripts": {
-    "test": "npm run prepare && jest test.js",
+    "test": "npm run prepare && jest test.ts",
     "prepare": "rollup --config",
     "coverage": "npm test && codecov"
   },
@@ -19,6 +19,8 @@
     }
   },
   "jest": {
+    "preset": "ts-jest",
+    "testEnvironment":"node",
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   },
@@ -33,6 +35,7 @@
   },
   "homepage": "https://github.com/C3NZ/math-lib#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.16",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "codecov": "^3.5.0",
@@ -44,6 +47,7 @@
     "jest": "^24.8.0",
     "rollup": "^1.17.0",
     "rollup-plugin-typescript2": "^0.22.1",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
   "dependencies": {
