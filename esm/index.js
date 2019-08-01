@@ -5,8 +5,8 @@
 Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
 
 /**
- * @desc Round a number to it's nearest whole number
  * @function
+ * @desc Round a number to it's nearest whole number
  * @return {Number} the closest whole number to the original number
  */
 Number.prototype.round = function round() {
@@ -14,8 +14,8 @@ Number.prototype.round = function round() {
 };
 
 /**
- * @desc Round a number down to it's nearest whole number.
  * @function
+ * @desc Round a number down to it's nearest whole number.
  * @return {Number} the closest whole number to the rounded down original number.
  */
 Number.prototype.floor = function floor() {
@@ -23,25 +23,24 @@ Number.prototype.floor = function floor() {
 };
 
 /**
- * @desc Round a number up to it's closest whole number
  * @function
+ * @desc Round a number up to it's closest whole number
  * @return {Number} the closest whole number to the rounded up original number.
- * @examples
- *  Number(5.32).ceil() -> 6
+ * @example
+ * Number(5.32).ceil() -> 6
  */
 Number.prototype.ceil = function ceil() {
   return Math.ceil(this);
 };
 
 /**
- * @desc Pad a number with a specified amount of zeros (On either the left or right side)
  * @function
+ * @desc Pad a number with a specified amount of zeros (On either the left or right side)
  * @return {String} A padded string that indicates.
- * @examples
- *  Number(5.3234).pad(4,5) -> 0004.32340
- *  Number(4.34).pad(2,0) -> 04.34
- *  Number(23.32).pad(10,10) -> 0000000023.3200000000
- *
+ * @example
+ * Number(5.3234).pad(4,5) -> 0004.32340
+ * Number(4.34).pad(2,0) -> 04.34
+ * Number(23.32).pad(10,10) -> 0000000023.3200000000
  */
 Number.prototype.pad = function pad(leftPadding, rightPadding) {
   const numAsArray = String(this).split(".");
@@ -80,35 +79,35 @@ Number.prototype.pad = function pad(leftPadding, rightPadding) {
 };
 
 /**
- * @desc Convert a number from degrees to radians
  * @function
+ * @desc Convert a number from degrees to radians
  * @return {Number} The converted number in radians
- * @examples
- *  Number(20).degToRad() -> 0.349066
+ * @example
+ * Number(20).degToRad() -> 0.349066
  */
 Number.prototype.degToRad = function degToRad() {
   return this * (Math.PI / 180);
 };
 
 /**
- * @desc Convert a number from radians to degrees
  * @function
+ * @desc Convert a number from radians to degrees
  * @return {Number} the converted number in degrees.
- * @examples
- *  Number(1).radToDeg() -> 57.2958
+ * @example
+ * Number(1).radToDeg() -> 57.2958
  */
 Number.prototype.radToDeg = function radToDeg() {
   return this / (Math.PI / 180);
 };
 
 /**
- * @desc Convert a number to USD.
  * @function
+ * @desc Convert a number to USD.
  * @return {String} The dollar representation of the number
- * @examples
- *  Number(1).toDollars() -> $1.00
- *  Number(1.05).toDollars() -> $1.05
- *  Number(0.5).toDollars() -> ¢0.5
+ * @example
+ * Number(1).toDollars() -> $1.00
+ * Number(1.05).toDollars() -> $1.05
+ * Number(0.5).toDollars() -> ¢0.5
  */
 Number.prototype.toDollars = function toDollars() {
   const numArr = String(this).split(".");
@@ -128,14 +127,14 @@ Number.prototype.toDollars = function toDollars() {
 };
 
 /**
- * @desc Return the tax amount from the number that would be applied given the rate
  * @function
+ * @desc Return the tax amount from the number that would be applied given the rate
  * @param {Number} rate - The tax rate to be applied where the rate is 0 <= rate <= 100
  * or the rate is 0 <= 100
  * @return {Number} the total tax amount of the current number multiplied by the rate
- * @examples
- *  Number(10).tax(10) -> 1.00
- *  Number(60).tax(25) -> 15.00
+ * @example
+ * Number(10).tax(10) -> 1.00
+ * Number(60).tax(25) -> 15.00
  */
 Number.prototype.tax = function tax(rate) {
   // Anything times zero is zero
@@ -152,25 +151,28 @@ Number.prototype.tax = function tax(rate) {
 };
 
 /**
- * @desc Return this number with a specified tax rate applied to it.
  * @function
+ * @desc Return this number with a specified tax rate applied to it.
  * @param {Number} rate - The tax rate to be applied
  * @return {Number} a new number that has the tax of the original number applied.
- * @examples
- *  Number(10).withTax(10) -> 11
- *  Number(200).withTax(50) -> 300
+ * @example
+ * Number(10).withTax(10) -> 11
+ * Number(200).withTax(50) -> 300
  */
 Number.prototype.withTax = function withTax(rate) {
   return this + this.tax(rate);
 };
 
 /**
+ * @function
  * @desc Calculate the interest on a number given the interest rate, years, and optional
  * decimal places to round to
- * @function
  * @param {Number} rate - The interest rate
  * @param {Number} years - The amount of years the rate is applied to
- * return {String} a string containing the total interest paid on a given number
+ * @return {String} a string containing the total interest paid on a given number
+ * @example
+ * Number(10).interest(1, 10) -> "110.00"
+ * Number(2).interest(80, 50) -> "82.00"
  */
 Number.prototype.interest = function interest(rate, years, decimalPlaces = 2) {
   if (rate < 0) {
@@ -186,9 +188,14 @@ Number.prototype.interest = function interest(rate, years, decimalPlaces = 2) {
 };
 
 /**
+ * @function
  * @desc Calculate the monthly payments for a mortage given a principal (Number)
  * @param {Number} numberOfYears - the years remaining for the mortage
  * @param {Number} interestRate - The yearly rate of interest
+ * @return {Number} The monthly mortage payments that need to be made to pay off the mortage
+ * @example
+ * Number(100000).mortage(3.92, 30) -> (Roughly) 473
+ * Number(50000).mortage(5.0, 10) -> (Roughly) 530
  */
 Number.prototype.mortage = function mortage(interestRate, numberOfYears) {
   if (numberOfYears < 0) {
@@ -208,4 +215,24 @@ Number.prototype.mortage = function mortage(interestRate, numberOfYears) {
   // Bottom half of the mortage equation
   const denominator = Math.pow(1 + monthlyInterest, totalPayments) - 1;
   return (this * monthlyInterest * numerator) / denominator;
+};
+
+/**
+ * @function
+ * @desc convert a decimal number to hexadecimal, all thanks to the help of this
+ * stack overflow question: https://stackoverflow.com/questions/57803/how-to-convert-decimal-to-hexadecimal-in-javascript
+ * @return {String} The string containing the number converted to hexadecimal
+ * @example
+ * Number(0).decimalToHex() -> "0"
+ * Number(15).decimalToHex() -> "0xF"
+ */
+Number.prototype.decimalToHex = function decimalToHex() {
+  let num = this;
+
+  // If the number is less than 0
+  if (num < 0) {
+    num += 0xffffffff + 1;
+  }
+
+  return `0x${num.toString(16).toUpperCase()}`;
 };
