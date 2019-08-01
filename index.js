@@ -236,3 +236,5 @@ Number.prototype.decimalToHex = function decimalToHex() {
 
   return `0x${num.toString(16).toUpperCase()}`;
 };
+
+

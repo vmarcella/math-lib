@@ -1,4 +1,8 @@
 # math-lib
+![Travis (.com)](https://img.shields.io/travis/com/C3NZ/math-lib?style=plastic)
+[![Codecov](https://img.shields.io/codecov/c/gh/C3NZ/math-lib?style=plastic)](https://codecov.io/gh/C3NZ/math-lib)
+![GitHub repo size](https://img.shields.io/github/repo-size/C3NZ/math-lib?style=plastic)
+![David](https://img.shields.io/david/C3NZ/math-lib?style=plastic)
 
 ## Description
 
