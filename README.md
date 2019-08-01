@@ -74,8 +74,8 @@ Pad a number with a specified amount of zeros (On either the left or right side)
 
 ```javascript
 Number(5.3234).pad(4,5) -> 0004.32340
- Number(4.34).pad(2,0) -> 04.34
- Number(23.32).pad(10,10) -> 0000000023.3200000000
+Number(4.34).pad(2,0) -> 04.34
+Number(23.32).pad(10,10) -> 0000000023.3200000000
 ```
 
 Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** A padded string that indicates.
