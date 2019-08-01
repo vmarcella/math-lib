@@ -5,8 +5,8 @@
 Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
 
 /**
- * @desc Round a number to it's nearest whole number
  * @function
+ * @desc Round a number to it's nearest whole number
  * @return {Number} the closest whole number to the original number
  */
 Number.prototype.round = function round() {
@@ -14,8 +14,8 @@ Number.prototype.round = function round() {
 };
 
 /**
- * @desc Round a number down to it's nearest whole number.
  * @function
+ * @desc Round a number down to it's nearest whole number.
  * @return {Number} the closest whole number to the rounded down original number.
  */
 Number.prototype.floor = function floor() {
@@ -23,8 +23,8 @@ Number.prototype.floor = function floor() {
 };
 
 /**
- * @desc Round a number up to it's closest whole number
  * @function
+ * @desc Round a number up to it's closest whole number
  * @return {Number} the closest whole number to the rounded up original number.
  * @examples
  *  Number(5.32).ceil() -> 6
@@ -34,8 +34,8 @@ Number.prototype.ceil = function ceil() {
 };
 
 /**
- * @desc Pad a number with a specified amount of zeros (On either the left or right side)
  * @function
+ * @desc Pad a number with a specified amount of zeros (On either the left or right side)
  * @return {String} A padded string that indicates.
  * @examples
  *  Number(5.3234).pad(4,5) -> 0004.32340
@@ -80,8 +80,8 @@ Number.prototype.pad = function pad(leftPadding, rightPadding) {
 };
 
 /**
- * @desc Convert a number from degrees to radians
  * @function
+ * @desc Convert a number from degrees to radians
  * @return {Number} The converted number in radians
  * @examples
  *  Number(20).degToRad() -> 0.349066
@@ -91,8 +91,8 @@ Number.prototype.degToRad = function degToRad() {
 };
 
 /**
- * @desc Convert a number from radians to degrees
  * @function
+ * @desc Convert a number from radians to degrees
  * @return {Number} the converted number in degrees.
  * @examples
  *  Number(1).radToDeg() -> 57.2958
@@ -102,8 +102,8 @@ Number.prototype.radToDeg = function radToDeg() {
 };
 
 /**
- * @desc Convert a number to USD.
  * @function
+ * @desc Convert a number to USD.
  * @return {String} The dollar representation of the number
  * @examples
  *  Number(1).toDollars() -> $1.00
@@ -128,8 +128,8 @@ Number.prototype.toDollars = function toDollars() {
 };
 
 /**
- * @desc Return the tax amount from the number that would be applied given the rate
  * @function
+ * @desc Return the tax amount from the number that would be applied given the rate
  * @param {Number} rate - The tax rate to be applied where the rate is 0 <= rate <= 100
  * or the rate is 0 <= 100
  * @return {Number} the total tax amount of the current number multiplied by the rate
@@ -152,8 +152,8 @@ Number.prototype.tax = function tax(rate) {
 };
 
 /**
- * @desc Return this number with a specified tax rate applied to it.
  * @function
+ * @desc Return this number with a specified tax rate applied to it.
  * @param {Number} rate - The tax rate to be applied
  * @return {Number} a new number that has the tax of the original number applied.
  * @examples
@@ -165,9 +165,9 @@ Number.prototype.withTax = function withTax(rate) {
 };
 
 /**
+ * @function
  * @desc Calculate the interest on a number given the interest rate, years, and optional
  * decimal places to round to
- * @function
  * @param {Number} rate - The interest rate
  * @param {Number} years - The amount of years the rate is applied to
  * return {String} a string containing the total interest paid on a given number
@@ -186,9 +186,11 @@ Number.prototype.interest = function interest(rate, years, decimalPlaces = 2) {
 };
 
 /**
+ * @function
  * @desc Calculate the monthly payments for a mortage given a principal (Number)
  * @param {Number} numberOfYears - the years remaining for the mortage
  * @param {Number} interestRate - The yearly rate of interest
+ * @return {Number} The monthly mortage payments that need to be made to pay off the mortage
  */
 Number.prototype.mortage = function mortage(interestRate, numberOfYears) {
   if (numberOfYears < 0) {
@@ -208,4 +210,13 @@ Number.prototype.mortage = function mortage(interestRate, numberOfYears) {
   // Bottom half of the mortage equation
   const denominator = Math.pow(1 + monthlyInterest, totalPayments) - 1;
   return (this * monthlyInterest * numerator) / denominator;
+};
+
+Number.prototype.hexToDecimal = function hexToDecimal() {
+  let num = this;
+  if (num < 0) {
+    num += 0xffffffff + 1;
+  }
+
+  return this.toString(16).toUpperCase();
 };
