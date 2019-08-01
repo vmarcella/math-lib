@@ -27,7 +27,7 @@ Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
  * @desc Round a number to it's nearest whole number
  * @return {Number} the closest whole number to the original number
  */
-Number.prototype.round = function round() {
+Number.prototype.round = function round(): number {
   return Math.round(this);
 };
 
@@ -36,7 +36,7 @@ Number.prototype.round = function round() {
  * @desc Round a number down to it's nearest whole number.
  * @return {Number} the closest whole number to the rounded down original number.
  */
-Number.prototype.floor = function floor() {
+Number.prototype.floor = function floor(): number {
   return Math.floor(this);
 };
 
@@ -47,7 +47,7 @@ Number.prototype.floor = function floor() {
  * @example
  * Number(5.32).ceil() -> 6
  */
-Number.prototype.ceil = function ceil() {
+Number.prototype.ceil = function ceil(): number {
   return Math.ceil(this);
 };
 
@@ -62,7 +62,7 @@ Number.prototype.ceil = function ceil() {
  */
 Number.prototype.pad = function pad(
   leftPadding: number,
-  rightPadding: number
+  rightPadding: number,
 ): string {
   const numAsArray = String(this).split(".");
 
@@ -106,7 +106,7 @@ Number.prototype.pad = function pad(
  * @example
  * Number(20).degToRad() -> 0.349066
  */
-Number.prototype.degToRad = function degToRad() {
+Number.prototype.degToRad = function degToRad(): number {
   return this * (Math.PI / 180);
 };
 
@@ -117,7 +117,7 @@ Number.prototype.degToRad = function degToRad() {
  * @example
  * Number(1).radToDeg() -> 57.2958
  */
-Number.prototype.radToDeg = function radToDeg() {
+Number.prototype.radToDeg = function radToDeg(): number {
   return this / (Math.PI / 180);
 };
 
@@ -130,7 +130,7 @@ Number.prototype.radToDeg = function radToDeg() {
  * Number(1.05).toDollars() -> $1.05
  * Number(0.5).toDollars() -> ¢0.5
  */
-Number.prototype.toDollars = function toDollars() {
+Number.prototype.toDollars = function toDollars(): string {
   const numArr = String(this).split(".");
 
   // Number is a whole number
@@ -198,7 +198,7 @@ Number.prototype.withTax = function withTax(rate: number): number {
 Number.prototype.interest = function interest(
   rate: number,
   years: number,
-  decimalPlaces: number = 2
+  decimalPlaces: number = 2,
 ): string {
   if (rate < 0) {
     throw new Error("You cannot enter a interest rate lower than 0%!");
@@ -224,11 +224,11 @@ Number.prototype.interest = function interest(
  */
 Number.prototype.mortage = function mortage(
   interestRate: number,
-  numberOfYears: number
+  numberOfYears: number,
 ): number {
   if (numberOfYears < 0) {
     throw new Error(
-      "You cannot have a negative amount of years to make payments!"
+      "You cannot have a negative amount of years to make payments!",
     );
   }
 
@@ -254,7 +254,7 @@ Number.prototype.mortage = function mortage(
  * Number(0).decimalToHex() -> "0"
  * Number(15).decimalToHex() -> "0xF"
  */
-Number.prototype.decimalToHex = function decimalToHex() {
+Number.prototype.decimalToHex = function decimalToHex(): string {
   let num = this;
 
   // If the number is less than 0
@@ -265,4 +265,4 @@ Number.prototype.decimalToHex = function decimalToHex() {
   return `0x${num.toString(16).toUpperCase()}`;
 };
 
-module.exports.random = maxNum => Math.floor(Math.random() * maxNum);
+module.exports.random = (maxNum: number): number => Math.floor(Math.random() * maxNum);
