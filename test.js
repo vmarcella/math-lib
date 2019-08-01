@@ -92,3 +92,10 @@ test("Calculating the monthly payments for a mortage", () => {
   expect(Number(50000).mortage(5.0, 10)).toBeCloseTo(530, 0);
   expect(Number(0).mortage(100, 100)).toBe(0);
 });
+
+test("Converting a number to hexadecimal", () => {
+  expect(Number(0).decimalToHex()).toBe("0x0");
+  expect(Number(15).decimalToHex()).toBe("0xF");
+  expect(Number(-16).decimalToHex()).toBe("0xFFFFFFF0");
+  expect(Number(-1).decimalToHex()).toBe("0xFFFFFFFF");
+});
