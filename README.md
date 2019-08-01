@@ -14,15 +14,22 @@ about what this extension adds can be found in the API section.
 -   [round](#round)
 -   [floor](#floor)
 -   [ceil](#ceil)
+    -   [Examples](#examples)
 -   [pad](#pad)
     -   [Parameters](#parameters)
+    -   [Examples](#examples-1)
 -   [degToRad](#degtorad)
+    -   [Examples](#examples-2)
 -   [radToDeg](#radtodeg)
+    -   [Examples](#examples-3)
 -   [toDollars](#todollars)
+    -   [Examples](#examples-4)
 -   [tax](#tax)
     -   [Parameters](#parameters-1)
+    -   [Examples](#examples-5)
 -   [withTax](#withtax)
     -   [Parameters](#parameters-2)
+    -   [Examples](#examples-6)
 -   [interest](#interest)
     -   [Parameters](#parameters-3)
 -   [mortage](#mortage)
@@ -46,6 +53,12 @@ Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 Round a number up to it's closest whole number
 
+#### Examples
+
+```javascript
+Number(5.32).ceil() -> 6
+```
+
 Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the closest whole number to the rounded up original number.
 
 ### pad
@@ -57,11 +70,25 @@ Pad a number with a specified amount of zeros (On either the left or right side)
 -   `leftPadding`  
 -   `rightPadding`  
 
+#### Examples
+
+```javascript
+Number(5.3234).pad(4,5) -> 0004.32340
+ Number(4.34).pad(2,0) -> 04.34
+ Number(23.32).pad(10,10) -> 0000000023.3200000000
+```
+
 Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** A padded string that indicates.
 
 ### degToRad
 
 Convert a number from degrees to radians
+
+#### Examples
+
+```javascript
+Number(20).degToRad() -> 0.349066
+```
 
 Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The converted number in radians
 
@@ -69,11 +96,25 @@ Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 Convert a number from radians to degrees
 
+#### Examples
+
+```javascript
+Number(1).radToDeg() -> 57.2958
+```
+
 Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the converted number in degrees.
 
 ### toDollars
 
 Convert a number to USD.
+
+#### Examples
+
+```javascript
+Number(1).toDollars() -> $1.00
+ Number(1.05).toDollars() -> $1.05
+ Number(0.5).toDollars() -> ¢0.5
+```
 
 Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The dollar representation of the number
 
@@ -86,6 +127,13 @@ Return the tax amount from the number that would be applied given the rate
 -   `rate` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The tax rate to be applied where the rate is 0 &lt;= rate &lt;= 100
     or the rate is 0 &lt;= 100
 
+#### Examples
+
+```javascript
+Number(10).tax(10) -> 1.00
+ Number(60).tax(25) -> 15.00
+```
+
 Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the total tax amount of the current number multiplied by the rate
 
 ### withTax
@@ -95,6 +143,13 @@ Return this number with a specified tax rate applied to it.
 #### Parameters
 
 -   `rate` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The tax rate to be applied
+
+#### Examples
+
+```javascript
+Number(10).withTax(10) -> 11
+ Number(200).withTax(50) -> 300
+```
 
 Returns **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** a new number that has the tax of the original number applied.
 
