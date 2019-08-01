@@ -10,12 +10,17 @@
   ],
   "scripts": {
     "test": "npm run prepare && jest test.js",
-    "prepare": "rollup --config"
+    "prepare": "rollup --config",
+    "coverage": "npm test && codecov"
   },
   "husky": {
     "hooks": {
       "pre-push": "npm run test"
     }
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "repository": {
     "type": "git",
@@ -28,6 +33,7 @@
   },
   "homepage": "https://github.com/C3NZ/math-lib#readme",
   "devDependencies": {
+    "codecov": "^3.5.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
