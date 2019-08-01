@@ -1,3 +1,21 @@
+interface NumberConstructor {
+  GOLDENRATIO: number;
+}
+
+interface Number {
+  round(): number;
+  floor(): number;
+  ceil(): number;
+  pad(leftPadding: number, rightPadding: number): string;
+  degToRad(): number;
+  radToDeg(): number;
+  toDollars(): string;
+  tax(rate: number): number;
+  withTax(rate: number): number;
+  interest(rate: number, years: number, decimalPlaces: number): string;
+  mortage(interestRate: number, years: number): number;
+  decimalToHex(): string;
+}
 /**
  * @desc The golden ratio as approximated by: https://en.wikipedia.org/wiki/Golden_ratio
  * @type {Number}
@@ -42,7 +60,10 @@ Number.prototype.ceil = function ceil() {
  * Number(4.34).pad(2,0) -> 04.34
  * Number(23.32).pad(10,10) -> 0000000023.3200000000
  */
-Number.prototype.pad = function pad(leftPadding, rightPadding) {
+Number.prototype.pad = function pad(
+  leftPadding: number,
+  rightPadding: number
+): string {
   const numAsArray = String(this).split(".");
 
   // If the number has a decimal place...
@@ -136,7 +157,7 @@ Number.prototype.toDollars = function toDollars() {
  * Number(10).tax(10) -> 1.00
  * Number(60).tax(25) -> 15.00
  */
-Number.prototype.tax = function tax(rate) {
+Number.prototype.tax = function tax(rate: number): number {
   // Anything times zero is zero
   if (rate === 0) {
     return 0;
@@ -159,7 +180,7 @@ Number.prototype.tax = function tax(rate) {
  * Number(10).withTax(10) -> 11
  * Number(200).withTax(50) -> 300
  */
-Number.prototype.withTax = function withTax(rate) {
+Number.prototype.withTax = function withTax(rate: number): number {
   return this + this.tax(rate);
 };
 
@@ -174,7 +195,11 @@ Number.prototype.withTax = function withTax(rate) {
  * Number(10).interest(1, 10) -> "110.00"
  * Number(2).interest(80, 50) -> "82.00"
  */
-Number.prototype.interest = function interest(rate, years, decimalPlaces = 2) {
+Number.prototype.interest = function interest(
+  rate: number,
+  years: number,
+  decimalPlaces: number = 2
+): string {
   if (rate < 0) {
     throw new Error("You cannot enter a interest rate lower than 0%!");
   }
@@ -197,10 +222,13 @@ Number.prototype.interest = function interest(rate, years, decimalPlaces = 2) {
  * Number(100000).mortage(3.92, 30) -> (Roughly) 473
  * Number(50000).mortage(5.0, 10) -> (Roughly) 530
  */
-Number.prototype.mortage = function mortage(interestRate, numberOfYears) {
+Number.prototype.mortage = function mortage(
+  interestRate: number,
+  numberOfYears: number
+): number {
   if (numberOfYears < 0) {
     throw new Error(
-      "You cannot have a negative amount of years to make payments!",
+      "You cannot have a negative amount of years to make payments!"
     );
   }
 
@@ -237,4 +265,4 @@ Number.prototype.decimalToHex = function decimalToHex() {
   return `0x${num.toString(16).toUpperCase()}`;
 };
 
-
+module.exports.random = maxNum => Math.floor(Math.random() * maxNum);

@@ -33,9 +33,12 @@
   },
   "homepage": "https://github.com/C3NZ/math-lib#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
     "codecov": "^3.5.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.0",
     "husky": "^3.0.1",
     "jest": "^24.8.0",
