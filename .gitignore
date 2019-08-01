@@ -113,4 +113,5 @@ typings/
 
 #!! ERROR: npm is undefined. Use list command to see defined gitignore types !!#
 
+.rpt2_cache
 # End of https://www.gitignore.io/api/linux,javascript,node,npm
