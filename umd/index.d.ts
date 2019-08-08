@@ -1,7 +1,7 @@
-declare interface NumberConstructor {
+interface NumberConstructor {
     GOLDENRATIO: number;
 }
-declare interface Number {
+interface Number {
     round(): number;
     floor(): number;
     ceil(): number;
