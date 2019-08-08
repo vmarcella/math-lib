@@ -16,6 +16,7 @@ interface Number {
   mortage(interestRate: number, years: number): number;
   decimalToHex(): string;
 }
+
 /**
  * @desc The golden ratio as approximated by: https://en.wikipedia.org/wiki/Golden_ratio
  * @type {Number}

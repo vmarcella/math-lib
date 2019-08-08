@@ -8,6 +8,7 @@
     "esm/*",
     "umd/*"
   ],
+  "types": "esm/index.d.ts",
   "scripts": {
     "test": "npm run prepare && jest test.ts",
     "prepare": "rollup --config",
