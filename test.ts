@@ -78,7 +78,7 @@ test("Calculating the interest on a given number", (): void => {
   expect((): string => Number(1).interest(-1, 2)).toThrow();
   expect((): string => Number(2).interest(100, -2)).toThrow();
 
-  expect(Number(100).interest(1, 10)).toBe("110.00");
+  expect(Number(100).interest(1, 10, 2)).toBe("110.00");
   expect(Number(2).interest(80, 50)).toBe("82.00");
   expect(Number(15).interest(1, 1000)).toBe("165.00");
 });
