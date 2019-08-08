@@ -21,25 +21,25 @@ interface Number {
  * @desc The golden ratio as approximated by: https://en.wikipedia.org/wiki/Golden_ratio
  * @type {Number}
  */
-Number.GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
+export const GOLDENRATIO = (1 + Math.sqrt(5)) / 2;
 
 /**
  * @function
  * @desc Round a number to it's nearest whole number
  * @return {Number} the closest whole number to the original number
  */
-Number.prototype.round = function round(): number {
-  return Math.round(this);
-};
+export function round(num: number): number {
+  return Math.round(num);
+}
 
 /**
  * @function
  * @desc Round a number down to it's nearest whole number.
  * @return {Number} the closest whole number to the rounded down original number.
  */
-Number.prototype.floor = function floor(): number {
-  return Math.floor(this);
-};
+export function floor(num: number): number {
+  return Math.floor(num);
+}
 
 /**
  * @function
@@ -48,9 +48,9 @@ Number.prototype.floor = function floor(): number {
  * @example
  * Number(5.32).ceil() -> 6
  */
-Number.prototype.ceil = function ceil(): number {
-  return Math.ceil(this);
-};
+export function ceil(num: number): number {
+  return Math.ceil(num);
+}
 
 /**
  * @function
@@ -61,11 +61,12 @@ Number.prototype.ceil = function ceil(): number {
  * Number(4.34).pad(2,0) -> 04.34
  * Number(23.32).pad(10,10) -> 0000000023.3200000000
  */
-Number.prototype.pad = function pad(
+export function pad(
+  num: number,
   leftPadding: number,
   rightPadding: number,
 ): string {
-  const numAsArray = String(this).split(".");
+  const numAsArray = String(num).split(".");
 
   // If the number has a decimal place...
   if (numAsArray.length > 1) {
@@ -95,10 +96,10 @@ Number.prototype.pad = function pad(
 
   // There isn't a decimal place within the number,
   // no need to add right padding.
-  const num = numAsArray[0];
-  const paddingNeeded = leftPadding - num.length;
+  const outputNum = numAsArray[0];
+  const paddingNeeded = leftPadding - outputNum.length;
   return "0".repeat(paddingNeeded) + num;
-};
+}
 
 /**
  * @function
@@ -107,9 +108,9 @@ Number.prototype.pad = function pad(
  * @example
  * Number(20).degToRad() -> 0.349066
  */
-Number.prototype.degToRad = function degToRad(): number {
-  return this * (Math.PI / 180);
-};
+export function degToRad(num: number): number {
+  return num * (Math.PI / 180);
+}
 
 /**
  * @function
@@ -118,9 +119,9 @@ Number.prototype.degToRad = function degToRad(): number {
  * @example
  * Number(1).radToDeg() -> 57.2958
  */
-Number.prototype.radToDeg = function radToDeg(): number {
-  return this / (Math.PI / 180);
-};
+export function radToDeg(num: number): number {
+  return num / (Math.PI / 180);
+}
 
 /**
  * @function
@@ -131,8 +132,8 @@ Number.prototype.radToDeg = function radToDeg(): number {
  * Number(1.05).toDollars() -> $1.05
  * Number(0.5).toDollars() -> ¢0.5
  */
-Number.prototype.toDollars = function toDollars(): string {
-  const numArr = String(this).split(".");
+export function toDollars(num: number): string {
+  const numArr = String(num).split(".");
 
   // Number is a whole number
   if (numArr.length === 1) {
@@ -146,7 +147,7 @@ Number.prototype.toDollars = function toDollars(): string {
 
   // Number is fractional and greater than 0
   return `$${numArr[0]}.${numArr[1]}`;
-};
+}
 
 /**
  * @function
@@ -158,7 +159,7 @@ Number.prototype.toDollars = function toDollars(): string {
  * Number(10).tax(10) -> 1.00
  * Number(60).tax(25) -> 15.00
  */
-Number.prototype.tax = function tax(rate: number): number {
+export function tax(num: number, rate: number): number {
   // Anything times zero is zero
   if (rate === 0) {
     return 0;
@@ -166,11 +167,11 @@ Number.prototype.tax = function tax(rate: number): number {
 
   // Bound checking for the rate
   if (rate >= 0 && rate <= 100) {
-    return this * (rate / 100);
+    return num * (rate / 100);
   }
 
   throw new Error("The tax rate needs to be within 0 and 1! or 0 and 100!");
-};
+}
 
 /**
  * @function
@@ -181,9 +182,9 @@ Number.prototype.tax = function tax(rate: number): number {
  * Number(10).withTax(10) -> 11
  * Number(200).withTax(50) -> 300
  */
-Number.prototype.withTax = function withTax(rate: number): number {
-  return this + this.tax(rate);
-};
+export function withTax(num: number, rate: number): number {
+  return num + tax(num, rate);
+}
 
 /**
  * @function
@@ -196,7 +197,8 @@ Number.prototype.withTax = function withTax(rate: number): number {
  * Number(10).interest(1, 10) -> "110.00"
  * Number(2).interest(80, 50) -> "82.00"
  */
-Number.prototype.interest = function interest(
+export function interest(
+  num: number,
   rate: number,
   years: number,
   decimalPlaces: number = 2,
@@ -210,8 +212,8 @@ Number.prototype.interest = function interest(
   }
 
   const interestRate = rate / 100;
-  return (this * (1 + interestRate * years)).toFixed(decimalPlaces);
-};
+  return (num * (1 + interestRate * years)).toFixed(decimalPlaces);
+}
 
 /**
  * @function
@@ -223,7 +225,8 @@ Number.prototype.interest = function interest(
  * Number(100000).mortage(3.92, 30) -> (Roughly) 473
  * Number(50000).mortage(5.0, 10) -> (Roughly) 530
  */
-Number.prototype.mortage = function mortage(
+export function mortage(
+  num: number,
   interestRate: number,
   numberOfYears: number,
 ): number {
@@ -243,8 +246,8 @@ Number.prototype.mortage = function mortage(
   const numerator = Math.pow(1 + monthlyInterest, totalPayments);
   // Bottom half of the mortage equation
   const denominator = Math.pow(1 + monthlyInterest, totalPayments) - 1;
-  return (this * monthlyInterest * numerator) / denominator;
-};
+  return (num * monthlyInterest * numerator) / denominator;
+}
 
 /**
  * @function
@@ -255,15 +258,29 @@ Number.prototype.mortage = function mortage(
  * Number(0).decimalToHex() -> "0"
  * Number(15).decimalToHex() -> "0xF"
  */
-Number.prototype.decimalToHex = function decimalToHex(): string {
-  let num = this;
-
+export function decimalToHex(num: number): string {
   // If the number is less than 0
+  let internalNum = num;
   if (num < 0) {
-    num += 0xffffffff + 1;
+    internalNum += 0xffffffff + 1;
   }
 
-  return `0x${num.toString(16).toUpperCase()}`;
-};
+  return `0x${internalNum.toString(16).toUpperCase()}`;
+}
 
 module.exports.random = (maxNum: number): number => Math.floor(Math.random() * maxNum);
+
+export default {
+  pad,
+  round,
+  floor,
+  ceil,
+  degToRad,
+  radToDeg,
+  toDollars,
+  tax,
+  withTax,
+  interest,
+  mortage,
+  decimalToHex,
+};

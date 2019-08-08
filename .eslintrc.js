@@ -21,5 +21,12 @@ module.exports = {
   rules: {
     "no-extend-native": ["error", { exceptions: ["Number"] }],
     quotes: ["Error", "double"]
+  },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 };
